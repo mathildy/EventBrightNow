@@ -8,7 +8,7 @@ Attendance.destroy_all
 users = []
 events = []
 
-10.times do |i|
+3.times do |i|
     users << User.create!(
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
@@ -33,7 +33,7 @@ end
     
 end
 
-10.times do |i|
+6.times do |i|
     attendance = Attendance.create!(
         user: users.sample,
         event: events.sample
