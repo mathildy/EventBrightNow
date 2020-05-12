@@ -12,19 +12,19 @@ events = []
     users << User.create!(
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
-        email: "testdefail@yopmail.com",
+        email: Faker::Internet.email,
         description: Faker::Lorem.paragraphs,
-        encrypted_password: "test"
+        password: "testmdp"
         
     )
     
 end
 
-10.times do |i|
+6.times do |i|
     events << Event.create!(
         start_date: Time.parse("2020-08-12"),
         duration: 5 * rand(1..100),
-        title: Faker::Name.name,
+        title: Faker::DcComics.title,
         description: Faker::Lorem.paragraphs,
         price: rand(1..300),
         location: cities.sample,

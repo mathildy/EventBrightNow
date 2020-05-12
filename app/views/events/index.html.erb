@@ -1,0 +1,30 @@
+<div class="jumbotron">
+  <h1 class="display-4">Event Bright Now</h1>
+  <p class="lead">Les meilleurs events, partout, pour tous, par vous.</p>
+  <hr class="my-4">
+  <p>Tu prépares un évènement de préstige ?</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button">Create your event now !</a>
+  </p>
+</div>
+
+<div class="row justify-content-center">
+ <h4> Voici les bright events en cours </h4>
+</div>
+
+<div class="row">
+  <% @events.each do |event| %>
+
+  <div class="col-sm-3" style="padding: 25px">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= event.title %></h5>
+        <p class="card-text">Crée par  <%= event.admin.first_name %></p>
+           <%= link_to "Voir l'évènement", event_path(event.id) , class:"btn btn-outline-dark" %> 
+
+      </div>
+     
+    </div>
+  
+  </div>
+  <% end %>
