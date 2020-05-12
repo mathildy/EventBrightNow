@@ -4,8 +4,8 @@ class UserMailer < ApplicationMailer
     def welcome_email(user)
       @user = user 
   
-      @url  = 'https://eventbrightnow.herokuapp.com' 
+      @url  = 'https://event-bright-now.herokuapp.com' 
   
-      mail(to: @user.email, subject: 'Bienvenue chez nous !') 
+      mail(to: @user.email, subject: 'Bienvenue sur notre site !') 
     end
   end
