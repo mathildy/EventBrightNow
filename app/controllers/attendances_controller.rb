@@ -5,7 +5,7 @@ class AttendancesController < ApplicationController
    end 
    
    def new
-    @events = Event.all
+    @events = Event.new
 
     @attendances = Attendance.all
    end 
