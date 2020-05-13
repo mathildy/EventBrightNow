@@ -1,0 +1,59 @@
+ <div class="container">
+  <div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
+    <div class="row justify-content-center">
+
+ 
+ <div class="container-fluid text-center">
+  <h3 class="texte-bienvenue mt-5">Créer un nouvel event bright</h3>
+  <div class="container-fluid">
+    <%= form_for(:events,  url:(events_path), action: 'create', method: :post) do |f| %>
+      <div class="field">
+        <%= f.hidden_field :admin_id, :value => current_user.id %>
+      </div><br />
+
+      <div class="field">
+        <%= f.label "Titre" %><br />
+        <%= f.text_field :title, autofocus: true, autocomplete: :title %>
+      </div><br />
+
+      <div class="field">
+        <%= f.label "Description" %> <br />
+        <%= f.text_area :description, autocomplete: :description %>
+      </div><br />
+
+      <div class="field">
+        <%= f.label "Localisation" %> <br />
+        <%= f.text_field :location, autocomplete: :location %>
+      </div><br />
+
+      <div class="field">
+        <%= f.label "Date" %> <br />
+        <%= f.datetime_field :start_date, autocomplete: :start_date %>
+      </div><br />
+      
+      <div class="field">
+        <%= f.label "Durée en minute"%> <br />
+        <%= f.text_field :duration, placeholder: "Doit finir par 0 ou 5" %>
+      </div><br />
+
+      <div class="field">
+        <%= f.label "Prix" %> <br />
+        <%= f.number_field :price, autocomplete: :price %>
+      </div><br />
+
+      <div class="actions">
+          <%= f.submit "Créer mon event !", class:"btn btn-dark btn-sm" %>
+      </div>
+      
+    <% end %>
+  </div>
+  <div class="mt-5 container-fluid">
+    <%= link_to "Retour", :back %>
+  </div>
+</div> 
+</div>
+</div>
+</div>
+</div> 
+

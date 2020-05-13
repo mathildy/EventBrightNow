@@ -3,11 +3,15 @@ class UsersController < ApplicationController
 
     def index
         @users = User.all
-      end
+    end
     
     def show
-        @users = User.find(params[:id])
         @events_user = User.find(params[:id]).events
+        @users = User.find(params[:id])
+            if current_user.id != @users.id
+                flash[:error] = "You are not allowed."
+              redirect_to root_path
+            end
     end
 
     private

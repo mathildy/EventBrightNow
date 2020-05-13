@@ -1,11 +1,16 @@
 <div class="jumbotron">
+<div class="row justify-content-center">
   <h1 class="display-4">Event Bright Now</h1>
-  <p class="lead">Les meilleurs events, partout, pour tous, par vous.</p>
-  <hr class="my-4">
-  <p>Vous préparez un évènement de préstige ?</p>
+  </div>
+  <div class="row justify-content-center">
+  <p class="lead">Les events les plus classes, partout, pour tous, par vous.</p>
+  </div>
+  
+  <div class="row justify-content-center">
   <p class="lead">
-    <a class="btn btn-dark btn-lg" href="#" role="button">Create your event now !</a>
+    <a class="btn btn-dark btn-lg" role="button"<%= link_to "Create your event now !", new_event_path%>  </a>
   </p>
+  </div>
 </div>
 
 <div class="row justify-content-center">
@@ -15,16 +20,14 @@
 <div class="row justify-content-center">
   <% @events.each do |event| %>
 
-  <div class="col-sm-5" style="padding: 25px">
-    <div class="card">
+
+ <div class="col-sm-4" style="padding: 22px">
+    <div class="card mb-3">
       <div class="card-body">
         <h5 class="card-title"><%= event.title %></h5>
         <p class="card-text">Crée par  <%= event.admin.first_name %></p>
            <%= link_to "Voir l'évènement", event_path(event.id) , class:"btn btn-outline-dark" %> 
-
       </div>
-     
     </div>
-  
   </div>
   <% end %>
