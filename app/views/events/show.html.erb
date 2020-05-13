@@ -13,10 +13,10 @@
    Event bright : <%= @events.title %>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Créé par <%= @events.title %></li>
+ <li class="list-group-item">Créé par : <%= @events.admin.first_name %></li> 
     <li class="list-group-item">Date : <%= @events.start_date%></li>
     <li class="list-group-item">Durée : <%= @events.duration %> </li>
-    <li class="list-group-item">Localisation : <%= @events.location %> </li>
+    <li class="list-group-item">Localisation : <%= @events.location %></li>
     <li class="list-group-item">Prix : <%= @events.price %> €</li>
   </ul>
 </div>
