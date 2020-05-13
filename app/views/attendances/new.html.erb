@@ -1,0 +1,46 @@
+<br>
+<div class="row justify-content-center">
+ <h3> Participer à l'event bright <%= @events.title %>  le event.date</h3>
+</div>
+
+<br>
+<div class="row justify-content-center">
+ <%= @attendances.count %> participations
+</div>
+
+
+ <div class="container">
+  <div class="card border-0 shadow my-5">
+   <div class="card-body p-5">
+    <div class="row justify-content-center">
+
+ <%= form_tag charges_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>Tarif: events.price € </span>
+    </label>
+    <br>
+    <br>
+  </article>
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="A month's subscription"
+          data-amount="500"
+          data-locale="auto"></script>
+<% end %>
+  </div>
+
+  <div class="mt-5 container-fluid row justify-content-center">
+    <%= link_to "Retour", :back %>
+  </div>
+
+    </div> 
+   </div>
+  </div>
+ </div>
+</div> 

@@ -15,11 +15,17 @@
   <ul class="list-group list-group-flush">
  <li class="list-group-item">Créé par : <%= @events.admin.first_name %></li> 
     <li class="list-group-item">Date : <%= @events.start_date%></li>
-    <li class="list-group-item">Durée : <%= @events.duration %> </li>
+    <li class="list-group-item">Durée : <%= @events.duration %> minutes</li>
     <li class="list-group-item">Localisation : <%= @events.location %></li>
     <li class="list-group-item">Prix : <%= @events.price %> €</li>
   </ul>
 </div>
 </div>
 </div>
+
+ <div class="row justify-content-center">
+  <%= link_to "Participer", new_attendance_path , class:"btn btn-outline-dark" %>  
+</div>
+
+  
 

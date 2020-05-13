@@ -1,3 +1,7 @@
+  <div class="row justify-content-center"> 
+   <h3 class="texte-bienvenue mt-5">Créer un nouvel event bright</h3>
+  </div>
+
  <div class="container">
   <div class="card border-0 shadow my-5">
     <div class="card-body p-5">
@@ -5,7 +9,6 @@
 
  
  <div class="container-fluid text-center">
-  <h3 class="texte-bienvenue mt-5">Créer un nouvel event bright</h3>
   <div class="container-fluid">
     <%= form_for(:events,  url:(events_path), action: 'create', method: :post) do |f| %>
       <div class="field">

@@ -3,18 +3,22 @@
   <h1 class="display-4">Event Bright Now</h1>
   </div>
   <div class="row justify-content-center">
-  <p class="lead">Les events les plus classes, partout, pour tous, par vous.</p>
+  <p class="lead">Les events les plus classes, par vous, pour tous, partout.</p>
   </div>
   
   <div class="row justify-content-center">
   <p class="lead">
+  <% if current_user %>
     <a class="btn btn-dark btn-lg" role="button"<%= link_to "Create your event now !", new_event_path%>  </a>
+    <% else %>
+    <a class="btn btn-dark btn-lg" role="button"<%= link_to "Create your event now !", new_user_session_path%>  </a>
+    <% end %>
   </p>
   </div>
 </div>
 
 <div class="row justify-content-center">
- <h4> Voici les events bright en cours </h4>
+ <h4>Les events bright à venir </h4>
 </div>
 
 <div class="row justify-content-center">
@@ -26,7 +30,8 @@
       <div class="card-body">
         <h5 class="card-title"><%= event.title %></h5>
         <p class="card-text">Crée par  <%= event.admin.first_name %></p>
-           <%= link_to "Voir l'évènement", event_path(event.id) , class:"btn btn-outline-dark" %> 
+           <%= link_to "Voir l'évènement", event_path(event.id) , class:"btn btn-outline-dark" %>
+           <%= link_to "Participer", new_attendance_path , class:"btn btn-outline-dark" %>  
       </div>
     </div>
   </div>
