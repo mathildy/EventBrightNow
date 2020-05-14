@@ -6,7 +6,9 @@ class AttendancesController < ApplicationController
    
    def new
     @events = Event.new
-
+   
+      #@event = Event.find(params[:id])
+  
     @attendances = Attendance.all
    end 
 
@@ -36,7 +38,7 @@ class AttendancesController < ApplicationController
       
       private
       
-    def attendance_params
-     params.require(:attendances)
-    end
+      def attendance_params
+        params.permit(:event_id, :user_id, :stripe_customer_id)
+      end
 end

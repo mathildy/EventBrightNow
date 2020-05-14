@@ -11,7 +11,6 @@ class EventsController < ApplicationController
     def new
         @events = Event.new
     end 
-    
     def create
         @events = Event.new(event_params)
         puts @events.title
