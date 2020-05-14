@@ -14,8 +14,30 @@ class UsersController < ApplicationController
             end
     end
 
+    def edit
+        @users = User.find(params[:id])
+    end
+
+    
+    def update
+        @users = User.find(params[:id])
+        if @users.update(user_params)
+            flash[:success] = "Votre profil a été mis-à-jour."
+
+          redirect_to user_path(@users.id)
+        else 
+            render 'edit'
+            end 
+        
+    end
+
     private
 
     def authenticate_user
     end
+
+    def user_params
+        params.require(:user).permit(:first_name, :last_name, :description)
+      end
+
 end

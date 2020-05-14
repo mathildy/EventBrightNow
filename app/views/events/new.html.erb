@@ -1,3 +1,5 @@
+  <div class="col-md-6 offset-md-3">
+
   <div class="row justify-content-center"> 
    <h3 class="texte-bienvenue mt-5">Créer un nouvel event bright</h3>
   </div>
@@ -17,46 +19,47 @@
 
       <div class="field">
         <%= f.label "Titre" %><br />
-        <%= f.text_field :title, autofocus: true, autocomplete: :title %>
+        <%= f.text_field :title, autofocus: true, autocomplete: :title, class: "form-control" %>
       </div><br />
 
       <div class="field">
         <%= f.label "Description" %> <br />
-        <%= f.text_area :description, autocomplete: :description %>
+        <%= f.text_area :description, placeholder: "20 caractères minimum", autocomplete: :description, class: "form-control" %>
       </div><br />
 
       <div class="field">
         <%= f.label "Localisation" %> <br />
-        <%= f.text_field :location, autocomplete: :location %>
+        <%= f.text_field :location, autocomplete: :location, class: "form-control" %>
       </div><br />
 
       <div class="field">
         <%= f.label "Date" %> <br />
-        <%= f.datetime_field :start_date, autocomplete: :start_date %>
+        <%= f.datetime_field :start_date, autocomplete: :start_date, class: "form-control" %>
       </div><br />
       
       <div class="field">
         <%= f.label "Durée en minute"%> <br />
-        <%= f.text_field :duration, placeholder: "Doit finir par 0 ou 5" %>
+        <%= f.text_field :duration, placeholder: "doit finir par 0 ou 5", class: "form-control" %>
       </div><br />
 
       <div class="field">
         <%= f.label "Prix" %> <br />
-        <%= f.number_field :price, autocomplete: :price %>
+        <%= f.number_field :price, autocomplete: :price, class: "form-control" %>
       </div><br />
 
-      <div class="actions">
+    </div>
+   </div>
+  <div class="actions">
           <%= f.submit "Créer mon event !", class:"btn btn-dark btn-sm" %>
       </div>
-      
-    <% end %>
+      <% end %>
+  
+     </div> 
+    </div>
+   </div>
   </div>
-  <div class="mt-5 container-fluid">
+ </div> 
+<div class="row justify-content-center"> 
     <%= link_to "Retour", :back %>
-  </div>
-</div> 
 </div>
-</div>
-</div>
-</div> 
 
