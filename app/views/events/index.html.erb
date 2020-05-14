@@ -32,7 +32,7 @@
         <p class="card-text font-weight-light">Crée par  <%= event.admin.first_name %></p>
         <p class="card-text text-uppercase">A <%= event.location %>, le <%= event.start_date %></p>
            <%= link_to "Voir l'évènement", event_path(event.id) , class:"btn btn-outline-dark" %>
-           <%= link_to "Participer", new_attendance_path , class:"btn btn-outline-dark" %>  
+            
       </div>
     </div>
   </div>

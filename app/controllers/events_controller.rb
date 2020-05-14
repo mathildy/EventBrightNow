@@ -1,37 +1,38 @@
 class EventsController < ApplicationController
 
-    def index
-        @events = Event.all
+  def index
+      @events = Event.all
+  end 
+
+  def show
+      @events = Event.find(params[:id])
     end 
 
-    def show
-        @events = Event.find(params[:id])
-      end 
-
-    def new
-        @events = Event.new
-    end 
-    def create
-        @events = Event.new(event_params)
-        puts @events.title
-        if @events.save
-          flash[:success] = "Your event has been created."
-          redirect_to event_path(@events.id)
-        else
-          messages = []
-          if @events.errors.any? 
-            @events.errors.full_messages.each do |message| 
-              messages << message
-            end 
-            flash[:error] = "You failed, find the following errors :#{messages.join(" ")}"
-            render 'new'
-          end
+  def new
+      @events = Event.new
+  end 
+  
+  def create
+      @events = Event.new(event_params)
+      puts @events.title
+      if @events.save
+        flash[:success] = "Your event has been created."
+        redirect_to event_path(@events.id)
+      else
+        messages = []
+        if @events.errors.any? 
+          @events.errors.full_messages.each do |message| 
+            messages << message
+          end 
+          flash[:error] = "You failed, find the following errors :#{messages.join(" ")}"
+          render 'new'
         end
       end
+    end
 
-      private
+    private
 
-  def event_params
-    params.require(:events).permit(:title, :location, :duration, :description, :price, :start_date, :admin_id)
-  end
+def event_params
+  params.require(:events).permit(:title, :location, :duration, :description, :price, :start_date, :admin_id)
+end
 end
