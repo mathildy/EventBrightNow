@@ -45,6 +45,7 @@ class UsersController < ApplicationController
   
     
     def show
+      #@user = User.find(params[:id])
       @events_user = User.find(params[:id]).events
       @users = User.find(params[:id])
           if current_user.id != @users.id

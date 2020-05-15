@@ -13,4 +13,6 @@ class Event < ApplicationRecord
     validates :description, presence: true, length: {minimum: 20, maximum: 1000}
     validates :price, presence: true
     validates :location, presence: true
+    has_one_attached :avatar 
+
   end

@@ -1,6 +1,14 @@
 <h2>Transaction réalisée avec succès !</h2>
 
-<p><%= link_to "Revenir à l'accueil", events_path, class:"btn btn-outline-dark" %></p>
+  <%= form_tag attendances_path, method: "post" do %>
+
+    <%= hidden_field_tag :user_id, current_user.id %>
+    <%= hidden_field_tag :event_id, @event.id %>
+    <%= hidden_field_tag :customer_id, @customer_id %>
+
+    <%= submit_tag "Confirmer le paiement", class: "btn btn-dark text-light" %>
+    
+  <% end %>  
 
 
 

@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
 
   def index
       @events = Event.all
@@ -16,7 +17,7 @@ class EventsController < ApplicationController
       @events = Event.new(event_params)
       puts @events.title
       if @events.save
-        flash[:success] = "Your event has been created."
+        flash[:success] = "Votre évènement vient d'être créé ! "
         redirect_to event_path(@events.id)
       else
         messages = []
@@ -24,7 +25,7 @@ class EventsController < ApplicationController
           @events.errors.full_messages.each do |message| 
             messages << message
           end 
-          flash[:error] = "You failed, find the following errors :#{messages.join(" ")}"
+          flash[:error] = "Votre évènement n'a pas pu être créé pour les raisons suivantes : #{messages.join(" ")}"
           render 'new'
         end
       end
