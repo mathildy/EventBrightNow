@@ -4,18 +4,22 @@
  <h3>Mon event bright<h3>
  </div>
 <br>
-
+ 
+<div class="row justify-content-center">
  <%= image_tag @events.avatar, alt: 'avatar' if @events.avatar.attached? %> 
-
-<%= form_tag event_avatars_path(@events.id), multipart: true do %>
-  <%= file_field_tag :avatar %>
-  <%= submit_tag "Soumettre une nouvelle photo" %>
-<% end %></li> 
+  <% if current_user %>
+    <%= form_tag event_avatars_path(@events.id), multipart: true do %> 
+     <%= file_field_tag :avatar %>
+     <%= submit_tag "Soumettre une nouvelle photo" %>
+  <% end %>
+ <% end %>
+</div>
 
 <div class="jumbotron">
   <div class="row justify-content-center">
 <div class="card" style="width: 30rem;">
 
+ 
 
   <div class="card-header">
    Event bright : <%= @events.title %>
