@@ -1,0 +1,15 @@
+<div class="eventindex">
+<div class="row justify-content-center">
+  <% @events.each do |event| %>
+    <div class="col-sm-3">
+      <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= event.title %></h5>
+              <p class="card-text">Crée par <%= event.admin.first_name %></p>
+              <%= link_to "Voir l'évènement", event_path(event.id) , class:"btn btn-outline-dark" %>
+            </div>
+      </div>
+    </div>
+  <% end %>
+ </div>
+</div>

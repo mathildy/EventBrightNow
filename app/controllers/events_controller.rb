@@ -2,8 +2,8 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-      @events = Event.all
-  end 
+    @events = Event.all
+  end
 
   def show
       @events = Event.find(params[:id])
@@ -29,6 +29,10 @@ class EventsController < ApplicationController
           render 'new'
         end
       end
+    end
+
+    def _eventsindex
+      @events = Event.all
     end
 
     private

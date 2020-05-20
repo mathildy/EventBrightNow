@@ -1,0 +1,44 @@
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+          <div class="col-8">
+<div class="avatar" height="150px">
+<div class="row justify-content-center">
+ <%= image_tag @events.avatar, alt: 'avatar' if @events.avatar.attached? %> 
+  <% if current_user %>
+    <%= form_tag event_avatars_path(@events.id), multipart: true do %> 
+    <% if current_user == current_user.id %>
+     <%= file_field_tag :avatar %>
+     <%= submit_tag "Ajouter une photo à mon évènement" %>
+     <% end %>
+  <% end %>
+ <% end %>
+</div>
+</div>          
+        </div>
+          <div class="col-4 bg-dark"> 
+            <div class="list-group-item list-group-item-action active">
+                Informations évènements   <i class="fal fa-glass-cheers"></i></div>
+              <div class="list-group-item list-group-item-action"><%= @events.title %>
+              </div>
+              <div class="list-group-item list-group-item-action disabled">ID <%= @events.id %>  
+              </div>
+              <div class="list-group-item list-group-item-action disabled">Ville : <%= @events.location %>
+              </div>
+              <div class="list-group-item list-group-item-action disabled">Créé par <%= @events.admin.first_name %>
+              </div>
+              <div class="list-group-item list-group-item-action disabled">Durée : <%= @events.duration %> minutes</li>
+              </div>
+              <div class="list-group-item list-group-item-action disabled">Date : <%= @events.start_date%>
+              </div>
+              <div class="list-group-item list-group-item-action disabled">Participants : <%= @events.attendances.count%>
+              </div>
+              <div class="list-group-item list-group-item-action disabled">Prix : : <%= @events.price %> $
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+       
+<br>

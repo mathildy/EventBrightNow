@@ -1,4 +1,4 @@
-<h2>Transaction réalisée avec succès !</h2>
+<%= render 'partials/payment' %>
 
   <%= form_tag attendances_path, method: "post" do %>
 
@@ -6,7 +6,7 @@
     <%= hidden_field_tag :event_id, @event.id %>
     <%= hidden_field_tag :customer_id, @customer_id %>
 
-    <%= submit_tag "Confirmer le paiement", class: "btn btn-dark text-light" %>
+    <%= submit_tag "Revenir au site", class: "btn btn-dark text-light" %>
     
   <% end %>  
 

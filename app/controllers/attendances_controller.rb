@@ -4,7 +4,7 @@ class AttendancesController < ApplicationController
     @events = Event.find(params[:id])
     @attendances = @events.attendances
     unless current_user == @event.admin
-      flash[:failure] = "Vous n'êtes pas autorisés."
+      flash[:error] = "Vous n'êtes pas autorisés."
       redirect_to root_path
     end
   end
@@ -23,7 +23,7 @@ class AttendancesController < ApplicationController
       flash[:success] = "Vous êtes bien enregistrés !"
       redirect_to root_path
     else
-      flash[:error] = "Vous n'avez pas pu vous enregistrer"
+      flash[:error] = "Vous n'avez pas pu vous enregistrer."
       redirect_to root_path
     end
   end

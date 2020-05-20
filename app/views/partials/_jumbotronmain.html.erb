@@ -1,0 +1,17 @@
+<div class="jumbotron">
+ <div class="row justify-content-center">
+  <h1 class="display-4">Event Bright Now</h1>
+ </div>
+  <div class="row justify-content-center">
+   <p class="lead">Les events les plus classes, par vous, pour tous, partout.</p>
+  </div>
+   <div class="row justify-content-center">
+    <p class="lead">
+      <% if current_user %>
+       <a class="btn btn-dark btn-lg" role="button"<%= link_to "Create your event now !", new_event_path%>  </a>
+      <% else %>
+       <a class="btn btn-dark btn-lg" role="button"<%= link_to "Create your event now !", new_user_session_path%>  </a>
+      <% end %>
+    </p>
+   </div>
+</div>

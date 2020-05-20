@@ -9,29 +9,30 @@
   <div class="row justify-content-center">
     <div class="card" style="width: 30rem;">
       <div class="card-header">
- <div class="container">
-   <div class="card-body p-5">
-    
-
- <%= form_tag charges_path do %>
-  <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
+        <%= form_tag charges_path do %>
+           <article>
+             <% if flash[:error].present? %>
+             <div id="error_explanation">
+               <p><%= flash[:error] %></p>
+             </div>
+            <% end %>
+           <div class="row justify-content-center">
+             <label class="amount">
+             <br>
+               <h3><span>Tarif: <%= @event.price %>€</span></h3>
+             </label></div>
+            </article>
+            <div class="row justify-content-center">
+               <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                 data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                 data-description="A month's subscription"
+                 data-amount=<%= @event.price * 100 %>
+                 data-locale="auto"></script>
+            </div>
+          <br>
       </div>
-    <% end %>
-    <div class="row justify-content-center">
-    <label class="amount">
-      <h3><span>Tarif: <%= @event.price %>€</span></h3>
-    </label></div>
-  </article>
-
-<div class="row justify-content-center">
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount=<%= @event.price * 100 %>
-          data-locale="auto"></script>
+    </div>
+  </div>
 </div>
 
 <%= hidden_field_tag :id, @event.id %>

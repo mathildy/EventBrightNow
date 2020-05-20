@@ -49,7 +49,7 @@ class UsersController < ApplicationController
       @events_user = User.find(params[:id]).events
       @users = User.find(params[:id])
           if current_user.id != @users.id
-              flash[:error] = "You are not the allowed."
+              flash[:error] = "Vous n'êtes pas autorisés."
             redirect_to root_path
           end
   end
